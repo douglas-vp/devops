@@ -119,7 +119,6 @@ Documentação: https://kubernetes.io/docs/home/
 
 Baixe em: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 E instale as extensões: Docker, Terraform, YAML, GitHub Pull Requests
-
 Documentação: https://code.visualstudio.com/docs
 ---
 
