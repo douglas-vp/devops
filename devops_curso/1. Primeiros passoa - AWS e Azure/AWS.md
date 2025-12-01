@@ -7,7 +7,9 @@ Este README foi pensado para **qualquer pessoa**, mesmo sem experiência prévia
 - Criar uma máquina virtual (EC2) com script de inicialização (User Data)  
 - Acessar a máquina via SSH  
 - Encerrar recursos para evitar custos  
-- Criar uma VPC básica com sub-redes públicas e privadas  
+- Criar uma VPC básica com sub-redes públicas e privadas
+
+  Obs: É extremamente importante consultar a documentação oficial
 
 ---
 
