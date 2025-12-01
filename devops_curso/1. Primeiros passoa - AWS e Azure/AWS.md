@@ -9,7 +9,7 @@ Este README foi pensado para **qualquer pessoa**, mesmo sem experiência prévia
 - Encerrar recursos para evitar custos  
 - Criar uma VPC básica com sub-redes públicas e privadas
 
-  Obs: É extremamente importante consultar a documentação oficial
+- Obs: É extremamente importante consultar a documentação oficial
 
 ---
 
