@@ -11,7 +11,7 @@ A ideia deste material é que qualquer pessoa consiga:
 - Criar um **Storage Account** e um **container**
 - Deletar tudo de forma organizada para não gerar custos desnecessários
 
-O foco aqui **não é código**, e sim entender os principais conceitos e como navegar no portal.
+**Obs: É extremamente importante consultar a documentação oficial**
 
 ---
 
