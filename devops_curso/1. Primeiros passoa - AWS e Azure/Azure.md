@@ -1,7 +1,6 @@
 # Guia de Primeiros Passos no Azure ☁️
 
-Bem-vindo ao nosso **primeiro lab de Azure** usando o **portal web**.  
-A ideia deste material é que qualquer pessoa consiga:
+Este README foi pensado para qualquer pessoa, mesmo sem experiência prévia em nuvem, conseguir:
 
 - Criar uma **conta gratuita** no Azure
 - Entender a **interface do portal**
