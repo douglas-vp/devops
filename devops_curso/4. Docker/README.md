@@ -4,7 +4,7 @@ Este documento reúne em um único material um conjunto de **labs práticos de D
 
 ---
 
-## Parte I – 🐳 Lab Docker: Do Básico ao Avançado
+## Parte I –Lab Docker: Do Básico ao Avançado
 
 Este conjunto de labs práticos foi elaborado para ensinar o uso de Docker de forma eficiente no dia a dia de desenvolvimento e automação. O conteúdo inicia com comandos básicos e evolui para troubleshooting, cópia de arquivos, criação de imagens personalizadas e uso de `docker-compose`.
 
@@ -29,7 +29,7 @@ sudo systemctl status docker
 
 ### 2. Lab Docker
 
-#### 🎯 Objetivo geral
+#### Objetivo geral
 
 Executar comandos básicos do Docker garantindo a manutenção do acesso ao terminal remoto (por exemplo, via SSH) e evoluir para cenários mais avançados envolvendo aplicações em Python, FastAPI, Node.js, Docker Hub e Docker Compose.
 
