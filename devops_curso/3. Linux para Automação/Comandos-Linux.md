@@ -93,8 +93,6 @@ Agora você tem uma base funcional para continuar os próximos testes de conteú
 
 Na próxima parte, vamos explorar comandos como `cat`, `less`, `head`, `tail`, `grep`, `sed`, `awk` etc., usando os arquivos já existentes e outros que vamos criar conforme a necessidade.
 
-Te vejo na próxima parte! 😉
-
 ---
 
 ## Parte 2 – Manipulação de Conteúdo de Arquivos (Passo a Passo)
