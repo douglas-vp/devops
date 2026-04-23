@@ -4,5 +4,9 @@ Conjunto de práticas para integração entre as equipes de desenvolvimento de s
 
 ### Pricipais vias do DevOps
 1. Fluxo: Otimizar o fluxo de trabalho da esquerda (desenvolvimento) para a direita (operações/cliente).
-2. Feedback: Criar ciclos curtos de feedback para identificar e corrigir problemas rapidamente.
-3. Aprendizado e Experimentação: Fomentar uma cultura de alto risco e aprendizagem constante
+   - Tornar visível e identificar todo o trabalho
+   - Limitar o **Work in Progress** (consiste em definir um número máximo de tarefas que podem ser executadas simultaneamente em uma determinada fase do processo)
+   - Trabalhar baseado em pequenas entregas
+   - Tempo de Execução x Tempo de Processamento
+3. Feedback: Criar ciclos curtos de feedback para identificar e corrigir problemas rapidamente.
+4. Aprendizado e Experimentação: Fomentar uma cultura de alto risco e aprendizagem constante
