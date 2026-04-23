@@ -2,7 +2,7 @@
 
 Conjunto de práticas para integração entre as equipes de desenvolvimento de softwares, operações (infraestrutura ou sysadmin) e de apoio envolvidas (como controle de qualidade) e a adoção de processos automatizados para produção rápida e segura de aplicações e serviços.
 
-### Pricipais vias do DevOps
+#### Pricipais vias do DevOps
 1. Fluxo: Otimizar o fluxo de trabalho da esquerda (desenvolvimento) para a direita (operações/cliente).
    - tornar visível e identificar todo o trabalho
    - limitar o **Work in Progress** (consiste em definir um número máximo de tarefas que podem ser executadas simultaneamente em uma determinada fase do processo)
@@ -22,8 +22,7 @@ Conjunto de práticas para integração entre as equipes de desenvolvimento de s
    - tranaformar descobertas locais em globais (difusão do conhecimento)
    - cultura do aprendizado
 
-### Framework CALMS para DevOps
-
+#### Framework CALMS para DevOps
 CALMS é uma sigla amplamente aceita utilizada em DevOps que significa **Culture (Cultura), Automation (Automação), Lean, Measurement (Medição) e Sharing (Compartilhamento)**. Quando aplicados em conjunto no equilíbrio certo, os pilares CALMS fornecem uma estrutura sólida para orientar as organizações na adoção das Três Maneiras e integração das práticas de DevOps correspondentes no seu ecossistema:
    - **Cultura** refere-se à criação de uma cultura de colaboração, empatia, confiança e aprendizagem contínua na organização.
    - **Automação** refere-se à automatização incansável de processos e fluxos de trabalho para melhorar a eficiência e reduzir o risco de erro humano.
