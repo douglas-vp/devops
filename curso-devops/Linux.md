@@ -2022,3 +2022,1820 @@ lsblk
 - Use `/media` para dispositivos montados automaticamente pela interface gráfica.
 - Para `ntfs`, `exfat` e `vfat`, configure `uid`, `gid` e `umask` quando precisar controlar permissões.
 - Use `nofail` em discos externos para evitar problemas de inicialização caso o disco não esteja conectado.
+
+# Gerenciamento de pacotes no Linux
+
+Gerenciar pacotes no Linux significa **instalar, remover, atualizar, pesquisar e manter programas** no sistema operacional.
+
+Cada família de distribuição Linux utiliza um gerenciador de pacotes diferente.
+
+---
+
+## 1. Debian, Ubuntu, Linux Mint, Pop!_OS e Zorin OS
+
+Essas distribuições usam pacotes no formato `.deb` e o gerenciador principal é o **APT**.
+
+### Atualizar a lista de pacotes
+
+```bash
+sudo apt update
+```
+
+Atualiza a lista de pacotes disponíveis nos repositórios configurados no sistema.
+
+### Atualizar os pacotes instalados
+
+```bash
+sudo apt upgrade -y
+```
+
+Atualiza os pacotes já instalados.
+
+### Instalar um pacote
+
+```bash
+sudo apt install nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo apt install git
+```
+
+### Remover um pacote
+
+```bash
+sudo apt remove nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo apt remove git
+```
+
+### Remover pacote e arquivos de configuração
+
+```bash
+sudo apt purge nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo apt purge nginx
+```
+
+### Pesquisar um pacote
+
+```bash
+apt search nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+apt search docker
+```
+
+### Ver informações de um pacote
+
+```bash
+apt show nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+apt show nginx
+```
+
+### Remover pacotes desnecessários
+
+```bash
+sudo apt autoremove
+```
+
+### Limpar cache de pacotes
+
+```bash
+sudo apt clean
+```
+
+---
+
+## 2. Instalação manual de pacotes `.deb` com DPKG
+
+O `dpkg` é usado para instalar pacotes locais no formato `.deb`.
+
+### Instalar pacote `.deb`
+
+```bash
+sudo dpkg -i pacote.deb
+```
+
+Exemplo:
+
+```bash
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
+### Corrigir dependências quebradas
+
+```bash
+sudo apt install -f
+```
+
+Esse comando é útil quando o `dpkg` instala um pacote, mas faltam dependências.
+
+### Remover pacote instalado via `dpkg`
+
+```bash
+sudo dpkg -r nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo dpkg -r google-chrome-stable
+```
+
+### Listar pacotes instalados
+
+```bash
+dpkg -l
+```
+
+Filtrar por nome:
+
+```bash
+dpkg -l | grep nginx
+```
+
+---
+
+## 3. Fedora, Rocky Linux, AlmaLinux e RHEL
+
+Essas distribuições usam pacotes no formato `.rpm` e o gerenciador principal é o **DNF**.
+
+### Atualizar pacotes
+
+```bash
+sudo dnf update -y
+```
+
+### Instalar pacote
+
+```bash
+sudo dnf install nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo dnf install git
+```
+
+### Remover pacote
+
+```bash
+sudo dnf remove nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo dnf remove git
+```
+
+### Pesquisar pacote
+
+```bash
+dnf search nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+dnf search docker
+```
+
+### Ver informações de um pacote
+
+```bash
+dnf info nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+dnf info nginx
+```
+
+### Limpar cache
+
+```bash
+sudo dnf clean all
+```
+
+---
+
+## 4. Instalação manual de pacotes `.rpm`
+
+O `rpm` é usado para instalar pacotes locais no formato `.rpm`.
+
+### Instalar pacote `.rpm`
+
+```bash
+sudo rpm -i pacote.rpm
+```
+
+### Atualizar ou instalar pacote `.rpm`
+
+```bash
+sudo rpm -Uvh pacote.rpm
+```
+
+### Remover pacote
+
+```bash
+sudo rpm -e nome_do_pacote
+```
+
+### Listar pacotes instalados
+
+```bash
+rpm -qa
+```
+
+Filtrar por nome:
+
+```bash
+rpm -qa | grep nginx
+```
+
+---
+
+## 5. Arch Linux, Manjaro e EndeavourOS
+
+Essas distribuições usam o gerenciador **Pacman**.
+
+### Atualizar o sistema
+
+```bash
+sudo pacman -Syu
+```
+
+### Instalar pacote
+
+```bash
+sudo pacman -S nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo pacman -S git
+```
+
+### Remover pacote
+
+```bash
+sudo pacman -R nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo pacman -R git
+```
+
+### Remover pacote e dependências não utilizadas
+
+```bash
+sudo pacman -Rns nome_do_pacote
+```
+
+### Pesquisar pacote
+
+```bash
+pacman -Ss nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+pacman -Ss docker
+```
+
+### Ver pacotes instalados
+
+```bash
+pacman -Q
+```
+
+---
+
+## 6. openSUSE e SUSE Linux Enterprise
+
+Essas distribuições usam o gerenciador **Zypper**.
+
+### Atualizar repositórios
+
+```bash
+sudo zypper refresh
+```
+
+### Atualizar sistema
+
+```bash
+sudo zypper update
+```
+
+### Instalar pacote
+
+```bash
+sudo zypper install nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo zypper install git
+```
+
+### Remover pacote
+
+```bash
+sudo zypper remove nome_do_pacote
+```
+
+### Pesquisar pacote
+
+```bash
+zypper search nome_do_pacote
+```
+
+### Ver informações de um pacote
+
+```bash
+zypper info nome_do_pacote
+```
+
+---
+
+## 7. Alpine Linux
+
+O Alpine Linux usa o gerenciador **APK**.
+
+### Atualizar lista de pacotes
+
+```bash
+sudo apk update
+```
+
+### Atualizar pacotes instalados
+
+```bash
+sudo apk upgrade
+```
+
+### Instalar pacote
+
+```bash
+sudo apk add nome_do_pacote
+```
+
+Exemplo:
+
+```bash
+sudo apk add git
+```
+
+### Remover pacote
+
+```bash
+sudo apk del nome_do_pacote
+```
+
+### Pesquisar pacote
+
+```bash
+apk search nome_do_pacote
+```
+
+### Ver informações de um pacote
+
+```bash
+apk info nome_do_pacote
+```
+
+---
+
+## 8. Tabela resumo dos gerenciadores
+
+| Distribuição/Família | Formato | Gerenciador principal | Comando de instalação |
+|---|---|---|---|
+| Debian, Ubuntu, Mint, Pop!_OS, Zorin OS | `.deb` | `apt` | `sudo apt install pacote` |
+| Debian, Ubuntu, Mint, Pop!_OS, Zorin OS | `.deb` | `dpkg` | `sudo dpkg -i pacote.deb` |
+| Fedora, RHEL, Rocky Linux, AlmaLinux | `.rpm` | `dnf` | `sudo dnf install pacote` |
+| Fedora, RHEL, Rocky Linux, AlmaLinux | `.rpm` | `rpm` | `sudo rpm -i pacote.rpm` |
+| Arch Linux, Manjaro, EndeavourOS | Pacman package | `pacman` | `sudo pacman -S pacote` |
+| openSUSE, SUSE Linux Enterprise | `.rpm` | `zypper` | `sudo zypper install pacote` |
+| Alpine Linux | `.apk` | `apk` | `sudo apk add pacote` |
+
+---
+
+## 9. Tabela de comandos por ação
+
+| Ação | Debian/Ubuntu | Fedora/RHEL | Arch/Manjaro | openSUSE | Alpine |
+|---|---|---|---|---|---|
+| Atualizar lista | `sudo apt update` | `sudo dnf check-update` | `sudo pacman -Sy` | `sudo zypper refresh` | `sudo apk update` |
+| Atualizar sistema | `sudo apt upgrade -y` | `sudo dnf update -y` | `sudo pacman -Syu` | `sudo zypper update` | `sudo apk upgrade` |
+| Instalar pacote | `sudo apt install pacote` | `sudo dnf install pacote` | `sudo pacman -S pacote` | `sudo zypper install pacote` | `sudo apk add pacote` |
+| Remover pacote | `sudo apt remove pacote` | `sudo dnf remove pacote` | `sudo pacman -R pacote` | `sudo zypper remove pacote` | `sudo apk del pacote` |
+| Pesquisar pacote | `apt search pacote` | `dnf search pacote` | `pacman -Ss pacote` | `zypper search pacote` | `apk search pacote` |
+| Ver informações | `apt show pacote` | `dnf info pacote` | `pacman -Si pacote` | `zypper info pacote` | `apk info pacote` |
+| Listar instalados | `dpkg -l` | `rpm -qa` | `pacman -Q` | `zypper search -i` | `apk info` |
+| Limpar cache | `sudo apt clean` | `sudo dnf clean all` | `sudo pacman -Sc` | `sudo zypper clean` | `sudo apk cache clean` |
+
+---
+
+## 10. Comandos mais usados no Ubuntu/Debian
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install nome_do_pacote
+sudo apt remove nome_do_pacote
+sudo apt purge nome_do_pacote
+sudo apt autoremove
+apt search nome_do_pacote
+apt show nome_do_pacote
+```
+
+---
+
+## 11. Exemplo prático no Ubuntu
+
+### Instalar o Git
+
+```bash
+sudo apt update
+sudo apt install git -y
+```
+
+### Verificar instalação
+
+```bash
+git --version
+```
+
+### Remover o Git
+
+```bash
+sudo apt remove git
+```
+
+---
+
+## 12. Diferença entre `apt`, `dpkg`, `dnf`, `rpm`, `pacman`, `zypper` e `apk`
+
+| Ferramenta | Tipo | Uso principal |
+|---|---|---|
+| `apt` | Alto nível | Instala, remove e atualiza pacotes em Debian/Ubuntu com resolução automática de dependências |
+| `dpkg` | Baixo nível | Instala e remove pacotes locais `.deb` |
+| `dnf` | Alto nível | Gerencia pacotes em Fedora, RHEL, Rocky Linux e AlmaLinux |
+| `rpm` | Baixo nível | Instala e remove pacotes locais `.rpm` |
+| `pacman` | Alto nível | Gerencia pacotes em Arch Linux e derivados |
+| `zypper` | Alto nível | Gerencia pacotes em openSUSE e SUSE |
+| `apk` | Alto nível | Gerencia pacotes em Alpine Linux |
+
+---
+
+## 13. Boas práticas
+
+- Use sempre o gerenciador principal da sua distribuição.
+- No Ubuntu/Debian, execute `sudo apt update` antes de instalar novos pacotes.
+- Use `apt`, `dnf`, `pacman`, `zypper` ou `apk` sempre que possível, pois eles resolvem dependências automaticamente.
+- Use `dpkg` e `rpm` apenas para instalar arquivos locais, como `.deb` ou `.rpm`.
+- Use `purge` no Ubuntu/Debian quando quiser remover também arquivos de configuração.
+- Use `autoremove` no Ubuntu/Debian para limpar dependências não utilizadas.
+- Evite instalar pacotes de fontes desconhecidas.
+- Antes de remover pacotes importantes, verifique o que será removido.
+
+# Gerenciamento de processos no Linux
+
+Gerenciar processos no Linux significa **visualizar, monitorar, encerrar, priorizar e controlar programas em execução** no sistema.
+
+Um **processo** é qualquer programa ou comando em execução, como navegador, terminal, serviço, script, banco de dados ou aplicação.
+
+---
+
+## 1. Ver processos em execução
+
+### Listar todos os processos
+
+```bash
+ps aux
+```
+
+Exemplo de saída:
+
+```bash
+USER       PID  %CPU %MEM COMMAND
+root         1   0.0  0.1 /sbin/init
+douglas   2450   2.5  1.8 firefox
+douglas   3102   0.1  0.3 bash
+```
+
+| Coluna | Significado |
+|---|---|
+| `USER` | Usuário que iniciou o processo |
+| `PID` | Identificador do processo |
+| `%CPU` | Uso de CPU |
+| `%MEM` | Uso de memória |
+| `COMMAND` | Comando ou programa executado |
+
+---
+
+## 2. Filtrar processos com `grep`
+
+### Procurar processo pelo nome
+
+```bash
+ps aux | grep nginx
+```
+
+Exemplo:
+
+```bash
+ps aux | grep python
+```
+
+### Evitar que o próprio `grep` apareça no resultado
+
+```bash
+ps aux | grep "[p]ython"
+```
+
+---
+
+## 3. Monitorar processos em tempo real
+
+### Usando `top`
+
+```bash
+top
+```
+
+Comandos úteis dentro do `top`:
+
+| Tecla | Função |
+|---|---|
+| `q` | Sair |
+| `k` | Encerrar processo |
+| `P` | Ordenar por uso de CPU |
+| `M` | Ordenar por uso de memória |
+
+### Usando `htop`
+
+```bash
+htop
+```
+
+Instalar no Ubuntu/Debian:
+
+```bash
+sudo apt install htop
+```
+
+No `htop`, é possível navegar com as setas, selecionar processos e encerrar usando `F9`.
+
+---
+
+## 4. Identificar o PID de um processo
+
+O **PID** é o identificador numérico de um processo.
+
+### Usando `pidof`
+
+```bash
+pidof nome_do_processo
+```
+
+Exemplo:
+
+```bash
+pidof nginx
+```
+
+### Usando `pgrep`
+
+```bash
+pgrep nome_do_processo
+```
+
+Exemplo:
+
+```bash
+pgrep python
+```
+
+Mostrar também o comando:
+
+```bash
+pgrep -a python
+```
+
+---
+
+## 5. Encerrar processos
+
+### Encerrar processo pelo PID
+
+```bash
+kill PID
+```
+
+Exemplo:
+
+```bash
+kill 2450
+```
+
+Esse comando envia o sinal padrão `SIGTERM`, solicitando o encerramento normal do processo.
+
+### Forçar encerramento
+
+```bash
+kill -9 PID
+```
+
+Exemplo:
+
+```bash
+kill -9 2450
+```
+
+O sinal `-9` força o encerramento imediato e deve ser usado apenas quando o processo não responde.
+
+### Encerrar processo pelo nome
+
+```bash
+pkill nome_do_processo
+```
+
+Exemplo:
+
+```bash
+pkill firefox
+```
+
+### Encerrar todos os processos com determinado nome
+
+```bash
+killall nome_do_processo
+```
+
+Exemplo:
+
+```bash
+killall python
+```
+
+---
+
+## 6. Sinais mais comuns
+
+| Sinal | Nome | Função |
+|---|---|---|
+| `1` | `SIGHUP` | Recarrega ou reinicia configuração em alguns processos |
+| `2` | `SIGINT` | Interrompe o processo, semelhante ao `Ctrl + C` |
+| `9` | `SIGKILL` | Força o encerramento imediato |
+| `15` | `SIGTERM` | Solicita encerramento normal |
+| `18` | `SIGCONT` | Continua processo pausado |
+| `19` | `SIGSTOP` | Pausa processo |
+
+Encerrar normalmente:
+
+```bash
+kill -15 2450
+```
+
+Forçar encerramento:
+
+```bash
+kill -9 2450
+```
+
+---
+
+## 7. Pausar e continuar processos
+
+### Pausar processo
+
+```bash
+kill -STOP PID
+```
+
+Exemplo:
+
+```bash
+kill -STOP 2450
+```
+
+### Continuar processo pausado
+
+```bash
+kill -CONT PID
+```
+
+Exemplo:
+
+```bash
+kill -CONT 2450
+```
+
+---
+
+## 8. Primeiro plano e segundo plano
+
+### Executar comando normalmente
+
+```bash
+python script.py
+```
+
+O terminal fica ocupado até o processo terminar.
+
+### Executar em segundo plano
+
+```bash
+python script.py &
+```
+
+O `&` executa o comando em segundo plano e libera o terminal.
+
+### Ver processos em segundo plano do terminal atual
+
+```bash
+jobs
+```
+
+### Trazer processo para primeiro plano
+
+```bash
+fg
+```
+
+Se houver mais de um processo:
+
+```bash
+fg %1
+```
+
+### Enviar processo para segundo plano
+
+Durante a execução de um comando, pressione:
+
+```bash
+Ctrl + Z
+```
+
+Isso pausa o processo. Depois execute:
+
+```bash
+bg
+```
+
+---
+
+## 9. Manter processo rodando após fechar o terminal
+
+### Usando `nohup`
+
+```bash
+nohup comando &
+```
+
+Exemplo:
+
+```bash
+nohup python script.py &
+```
+
+A saída normalmente é gravada em:
+
+```bash
+nohup.out
+```
+
+### Salvar saída em arquivo específico
+
+```bash
+nohup python script.py > saida.log 2>&1 &
+```
+
+---
+
+## 10. Ver consumo de recursos
+
+### Ver uso de CPU e memória
+
+```bash
+top
+```
+
+ou:
+
+```bash
+htop
+```
+
+### Ver memória RAM
+
+```bash
+free -h
+```
+
+### Ver uso de disco
+
+```bash
+df -h
+```
+
+### Ver tamanho de diretórios
+
+```bash
+du -sh *
+```
+
+---
+
+## 11. Ver árvore de processos
+
+```bash
+pstree
+```
+
+Instalar no Ubuntu/Debian:
+
+```bash
+sudo apt install psmisc
+```
+
+Mostrar PIDs:
+
+```bash
+pstree -p
+```
+
+---
+
+## 12. Ver processos de um usuário específico
+
+```bash
+ps -u nome_usuario
+```
+
+Exemplo:
+
+```bash
+ps -u douglas
+```
+
+Com mais detalhes:
+
+```bash
+ps aux | grep douglas
+```
+
+---
+
+## 13. Ver processos usando uma porta
+
+### Usando `ss`
+
+```bash
+sudo ss -tulnp
+```
+
+Filtrar por porta:
+
+```bash
+sudo ss -tulnp | grep 80
+```
+
+### Usando `lsof`
+
+```bash
+sudo lsof -i :80
+```
+
+Exemplo:
+
+```bash
+sudo lsof -i :443
+```
+
+---
+
+## 14. Encerrar processo que usa uma porta
+
+### Descobrir o processo
+
+```bash
+sudo lsof -i :8000
+```
+
+Exemplo de saída:
+
+```bash
+COMMAND  PID USER
+python  2450 douglas
+```
+
+### Encerrar normalmente
+
+```bash
+kill 2450
+```
+
+### Forçar encerramento
+
+```bash
+kill -9 2450
+```
+
+---
+
+## 15. Alterar prioridade de processos
+
+No Linux, a prioridade é controlada pelo valor **nice**.
+
+Quanto menor o valor, maior a prioridade.
+
+| Nice | Prioridade |
+|---|---|
+| `-20` | Prioridade máxima |
+| `0` | Prioridade padrão |
+| `19` | Prioridade baixa |
+
+### Iniciar processo com prioridade menor
+
+```bash
+nice -n 10 comando
+```
+
+Exemplo:
+
+```bash
+nice -n 10 python script.py
+```
+
+### Alterar prioridade de processo em execução
+
+```bash
+renice 10 -p PID
+```
+
+Exemplo:
+
+```bash
+renice 10 -p 2450
+```
+
+Para aumentar prioridade, geralmente é necessário usar `sudo`:
+
+```bash
+sudo renice -5 -p 2450
+```
+
+---
+
+## 16. Gerenciar serviços com `systemctl`
+
+Muitos processos são serviços do sistema, como `nginx`, `docker`, `postgresql`, `ssh` e outros.
+
+### Ver status de um serviço
+
+```bash
+sudo systemctl status nome_servico
+```
+
+Exemplo:
+
+```bash
+sudo systemctl status nginx
+```
+
+### Iniciar serviço
+
+```bash
+sudo systemctl start nome_servico
+```
+
+### Parar serviço
+
+```bash
+sudo systemctl stop nome_servico
+```
+
+### Reiniciar serviço
+
+```bash
+sudo systemctl restart nome_servico
+```
+
+### Recarregar configuração sem reiniciar totalmente
+
+```bash
+sudo systemctl reload nome_servico
+```
+
+Exemplo:
+
+```bash
+sudo systemctl reload nginx
+```
+
+### Habilitar serviço no boot
+
+```bash
+sudo systemctl enable nome_servico
+```
+
+### Desabilitar serviço no boot
+
+```bash
+sudo systemctl disable nome_servico
+```
+
+---
+
+## 17. Ver logs de processos e serviços
+
+### Ver logs de um serviço
+
+```bash
+journalctl -u nome_servico
+```
+
+Exemplo:
+
+```bash
+journalctl -u nginx
+```
+
+### Ver logs em tempo real
+
+```bash
+journalctl -u nome_servico -f
+```
+
+Exemplo:
+
+```bash
+journalctl -u docker -f
+```
+
+### Ver logs desde hoje
+
+```bash
+journalctl -u nome_servico --since "today"
+```
+
+Exemplo:
+
+```bash
+journalctl -u nginx --since "today"
+```
+
+### Filtrar erros nos logs
+
+```bash
+journalctl -u nginx --since "today" | grep -Ei "error|failed|timeout|refused"
+```
+
+---
+
+## 18. Comandos mais usados
+
+| Comando | Função |
+|---|---|
+| `ps aux` | Lista todos os processos |
+| `ps aux | grep nome` | Filtra processo pelo nome |
+| `top` | Monitora processos em tempo real |
+| `htop` | Monitora processos com interface melhor |
+| `pidof nome` | Mostra PID de um processo |
+| `pgrep nome` | Procura PID pelo nome |
+| `pgrep -a nome` | Mostra PID e comando |
+| `kill PID` | Encerra processo normalmente |
+| `kill -9 PID` | Força encerramento |
+| `pkill nome` | Encerra processo pelo nome |
+| `killall nome` | Encerra todos os processos com o nome informado |
+| `jobs` | Mostra processos em segundo plano no terminal atual |
+| `fg` | Traz processo para primeiro plano |
+| `bg` | Continua processo em segundo plano |
+| `nohup comando &` | Mantém processo rodando após fechar terminal |
+| `pstree -p` | Mostra árvore de processos com PID |
+| `sudo ss -tulnp` | Mostra portas e processos |
+| `sudo lsof -i :porta` | Mostra processo usando uma porta |
+| `nice -n valor comando` | Inicia processo com prioridade definida |
+| `renice valor -p PID` | Altera prioridade de processo existente |
+| `systemctl status serviço` | Verifica status de serviço |
+| `journalctl -u serviço -f` | Acompanha logs do serviço |
+
+---
+
+## 19. Exemplos práticos
+
+### Encontrar e encerrar um processo Python
+
+```bash
+ps aux | grep python
+```
+
+Depois:
+
+```bash
+kill PID
+```
+
+Se necessário:
+
+```bash
+kill -9 PID
+```
+
+### Descobrir quem está usando a porta 8000
+
+```bash
+sudo lsof -i :8000
+```
+
+Depois:
+
+```bash
+kill PID
+```
+
+### Ver processos consumindo mais CPU
+
+```bash
+top
+```
+
+Dentro do `top`, pressione:
+
+```bash
+P
+```
+
+### Ver processos consumindo mais memória
+
+```bash
+top
+```
+
+Dentro do `top`, pressione:
+
+```bash
+M
+```
+
+### Rodar script em segundo plano e salvar log
+
+```bash
+nohup python script.py > script.log 2>&1 &
+```
+
+### Ver logs de um serviço em tempo real
+
+```bash
+journalctl -u nginx -f
+```
+
+---
+
+## 20. Resumo rápido
+
+```bash
+ps aux
+top
+htop
+pgrep nome
+kill PID
+kill -9 PID
+pkill nome
+jobs
+fg
+bg
+nohup comando &
+sudo lsof -i :porta
+sudo systemctl status serviço
+journalctl -u serviço -f
+```
+
+Esses comandos permitem visualizar processos, identificar consumo de recursos, encerrar programas travados, controlar execução em segundo plano, verificar portas em uso e acompanhar logs de serviços.
+
+# Uso de SSH para acesso remoto
+
+O **SSH** significa **Secure Shell**. Ele permite acessar remotamente outro computador ou servidor Linux de forma segura pelo terminal.
+
+A estrutura básica é:
+
+```bash
+ssh usuario@ip_ou_dominio
+```
+
+Exemplo:
+
+```bash
+ssh ubuntu@192.168.0.10
+```
+
+ou:
+
+```bash
+ssh ubuntu@meuservidor.com.br
+```
+
+---
+
+## 1. Verificar se o SSH está instalado
+
+### No computador cliente
+
+O cliente é a máquina de onde será feito o acesso ao servidor.
+
+```bash
+ssh -V
+```
+
+Se aparecer a versão do OpenSSH, o cliente SSH está instalado.
+
+### No servidor
+
+O servidor precisa ter o serviço SSH instalado e ativo.
+
+No Ubuntu/Debian:
+
+```bash
+sudo apt update
+sudo apt install openssh-server -y
+```
+
+Verificar status:
+
+```bash
+sudo systemctl status ssh
+```
+
+Iniciar o serviço:
+
+```bash
+sudo systemctl start ssh
+```
+
+Habilitar no boot:
+
+```bash
+sudo systemctl enable ssh
+```
+
+---
+
+## 2. Descobrir o IP do servidor
+
+No servidor, execute:
+
+```bash
+hostname -I
+```
+
+ou:
+
+```bash
+ip addr
+```
+
+Exemplo de IP local:
+
+```bash
+192.168.0.10
+```
+
+---
+
+## 3. Acessar servidor com usuário e senha
+
+No computador cliente:
+
+```bash
+ssh usuario@ip_do_servidor
+```
+
+Exemplo:
+
+```bash
+ssh douglas@192.168.0.10
+```
+
+Na primeira conexão, pode aparecer uma mensagem parecida com:
+
+```text
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Digite:
+
+```bash
+yes
+```
+
+Depois informe a senha do usuário remoto.
+
+---
+
+## 4. Acessar servidor usando domínio
+
+Se o servidor tiver domínio configurado, use:
+
+```bash
+ssh usuario@dominio.com.br
+```
+
+Exemplo:
+
+```bash
+ssh ubuntu@servidor.technium.me
+```
+
+---
+
+## 5. Acessar servidor em porta diferente
+
+Por padrão, o SSH usa a porta `22`.
+
+Se o servidor usa outra porta, informe com `-p`:
+
+```bash
+ssh usuario@ip_do_servidor -p 2222
+```
+
+Exemplo:
+
+```bash
+ssh ubuntu@192.168.0.10 -p 2222
+```
+
+---
+
+## 6. Gerar chave SSH
+
+A forma mais segura e prática de acessar servidores é usando chave SSH.
+
+No computador cliente, gere uma chave:
+
+```bash
+ssh-keygen -t ed25519 -C "seu_email@example.com"
+```
+
+Pressione `Enter` para aceitar o local padrão:
+
+```bash
+~/.ssh/id_ed25519
+```
+
+Arquivos criados:
+
+| Arquivo | Função |
+|---|---|
+| `~/.ssh/id_ed25519` | Chave privada |
+| `~/.ssh/id_ed25519.pub` | Chave pública |
+
+A chave privada nunca deve ser compartilhada.
+
+---
+
+## 7. Copiar chave pública para o servidor
+
+Use:
+
+```bash
+ssh-copy-id usuario@ip_do_servidor
+```
+
+Exemplo:
+
+```bash
+ssh-copy-id douglas@192.168.0.10
+```
+
+Se o SSH usa porta diferente:
+
+```bash
+ssh-copy-id -p 2222 usuario@ip_do_servidor
+```
+
+Depois, acesse sem senha:
+
+```bash
+ssh douglas@192.168.0.10
+```
+
+---
+
+## 8. Copiar chave manualmente
+
+Se `ssh-copy-id` não estiver disponível, copie o conteúdo da chave pública:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+No servidor, adicione esse conteúdo ao arquivo:
+
+```bash
+~/.ssh/authorized_keys
+```
+
+Passos no servidor:
+
+```bash
+mkdir -p ~/.ssh
+nano ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+```
+
+---
+
+## 9. Acessar usando chave específica
+
+Se a chave tiver outro nome ou caminho:
+
+```bash
+ssh -i caminho_da_chave usuario@ip_do_servidor
+```
+
+Exemplo:
+
+```bash
+ssh -i ~/.ssh/minha_chave ubuntu@192.168.0.10
+```
+
+Para arquivos `.pem`, comum em ambientes de nuvem:
+
+```bash
+ssh -i chave.pem ubuntu@ip_do_servidor
+```
+
+Se houver erro de permissão:
+
+```bash
+chmod 600 chave.pem
+```
+
+Depois tente novamente:
+
+```bash
+ssh -i chave.pem ubuntu@ip_do_servidor
+```
+
+---
+
+## 10. Arquivo de configuração SSH
+
+Para simplificar acessos frequentes, use o arquivo:
+
+```bash
+~/.ssh/config
+```
+
+Criar ou editar:
+
+```bash
+nano ~/.ssh/config
+```
+
+Exemplo:
+
+```sshconfig
+Host minha-vm
+    HostName 192.168.0.10
+    User ubuntu
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+```
+
+Depois acesse com:
+
+```bash
+ssh minha-vm
+```
+
+Permissão recomendada:
+
+```bash
+chmod 600 ~/.ssh/config
+```
+
+---
+
+## 11. Copiar arquivos com SCP
+
+O `scp` copia arquivos usando SSH.
+
+### Copiar arquivo local para servidor
+
+```bash
+scp arquivo.txt usuario@ip_do_servidor:/caminho/destino
+```
+
+Exemplo:
+
+```bash
+scp arquivo.txt ubuntu@192.168.0.10:/home/ubuntu/
+```
+
+### Copiar arquivo do servidor para sua máquina
+
+```bash
+scp usuario@ip_do_servidor:/caminho/arquivo.txt .
+```
+
+Exemplo:
+
+```bash
+scp ubuntu@192.168.0.10:/home/ubuntu/log.txt .
+```
+
+### Copiar pasta inteira
+
+```bash
+scp -r pasta usuario@ip_do_servidor:/caminho/destino
+```
+
+Exemplo:
+
+```bash
+scp -r projeto ubuntu@192.168.0.10:/home/ubuntu/
+```
+
+### Usar porta diferente com SCP
+
+No `scp`, a porta é informada com `-P` maiúsculo:
+
+```bash
+scp -P 2222 arquivo.txt usuario@ip:/destino
+```
+
+---
+
+## 12. Copiar arquivos com RSYNC
+
+O `rsync` é melhor para sincronizar pastas, pois copia apenas diferenças.
+
+```bash
+rsync -av pasta/ usuario@ip_do_servidor:/caminho/destino/
+```
+
+Exemplo:
+
+```bash
+rsync -av projeto/ ubuntu@192.168.0.10:/home/ubuntu/projeto/
+```
+
+Com porta diferente:
+
+```bash
+rsync -av -e "ssh -p 2222" projeto/ usuario@ip:/destino/
+```
+
+---
+
+## 13. Executar comando remoto via SSH
+
+É possível executar um comando no servidor sem abrir uma sessão interativa:
+
+```bash
+ssh usuario@ip_do_servidor "comando"
+```
+
+Exemplo:
+
+```bash
+ssh ubuntu@192.168.0.10 "df -h"
+```
+
+Outro exemplo:
+
+```bash
+ssh ubuntu@192.168.0.10 "sudo systemctl status nginx"
+```
+
+---
+
+## 14. Túnel SSH local
+
+Um túnel local permite acessar uma porta remota como se estivesse na sua máquina.
+
+Estrutura:
+
+```bash
+ssh -L porta_local:localhost:porta_remota usuario@servidor
+```
+
+Exemplo para acessar um serviço remoto na porta `3000`:
+
+```bash
+ssh -L 3000:localhost:3000 ubuntu@192.168.0.10
+```
+
+Depois acesse no navegador local:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## 15. Ver logs do SSH no servidor
+
+No Ubuntu/Debian:
+
+```bash
+sudo journalctl -u ssh
+```
+
+Em tempo real:
+
+```bash
+sudo journalctl -u ssh -f
+```
+
+Também pode verificar:
+
+```bash
+sudo tail -f /var/log/auth.log
+```
+
+---
+
+## 16. Arquivos importantes do SSH
+
+| Caminho | Função |
+|---|---|
+| `~/.ssh/id_ed25519` | Chave privada do usuário |
+| `~/.ssh/id_ed25519.pub` | Chave pública do usuário |
+| `~/.ssh/authorized_keys` | Chaves públicas autorizadas no servidor |
+| `~/.ssh/config` | Configurações de conexão do cliente SSH |
+| `/etc/ssh/sshd_config` | Configuração do servidor SSH |
+| `/var/log/auth.log` | Logs de autenticação no Ubuntu/Debian |
+
+---
+
+## 17. Permissões recomendadas
+
+| Caminho | Permissão |
+|---|---|
+| `~/.ssh` | `700` |
+| `~/.ssh/id_ed25519` | `600` |
+| `~/.ssh/id_ed25519.pub` | `644` |
+| `~/.ssh/authorized_keys` | `600` |
+| `~/.ssh/config` | `600` |
+| `chave.pem` | `600` |
+
+Aplicar permissões:
+
+```bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_ed25519
+chmod 644 ~/.ssh/id_ed25519.pub
+chmod 600 ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/config
+```
+
+---
+
+## 18. Boas práticas de segurança
+
+- Use chave SSH em vez de senha sempre que possível.
+- Não compartilhe a chave privada.
+- Use usuários comuns com `sudo`, evitando login direto como `root`.
+- Mantenha o SSH atualizado.
+- Desative login por senha apenas depois de testar o acesso por chave.
+- Antes de fechar a sessão atual, abra outro terminal e teste o acesso por chave para evitar perder acesso ao servidor.
+
+Atualizar sistema no Ubuntu/Debian:
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+Editar configuração do servidor SSH:
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Configurações recomendadas:
+
+```text
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+```
+
+Reiniciar SSH:
+
+```bash
+sudo systemctl restart ssh
+```
+
+---
+
+## 19. Problemas comuns
+
+### Permission denied publickey
+
+| Possível causa | Solução |
+|---|---|
+| Chave errada | Usar `ssh -i caminho_da_chave usuario@ip` |
+| Usuário errado | Conferir usuário remoto |
+| Chave pública ausente no servidor | Adicionar chave em `~/.ssh/authorized_keys` |
+| Permissões incorretas | Ajustar permissões com `chmod` |
+| Servidor ou serviço não aceita a chave | Cadastrar a chave pública no serviço correto |
+
+---
+
+### Host key verification failed
+
+Pode ocorrer quando o IP ou servidor mudou.
+
+Remover entrada antiga:
+
+```bash
+ssh-keygen -R ip_ou_dominio
+```
+
+Depois conectar novamente:
+
+```bash
+ssh usuario@ip_ou_dominio
+```
+
+---
+
+### Connection refused
+
+| Possível causa | Verificação |
+|---|---|
+| SSH não instalado | `sudo apt install openssh-server -y` |
+| Serviço parado | `sudo systemctl status ssh` |
+| Porta incorreta | `ssh usuario@ip -p porta` |
+| Firewall bloqueando | Verificar regras de firewall |
+| IP incorreto | Conferir com `hostname -I` |
+
+---
+
+## 20. Resumo dos comandos principais
+
+| Ação | Comando |
+|---|---|
+| Acessar servidor | `ssh usuario@ip` |
+| Acessar com porta específica | `ssh usuario@ip -p 2222` |
+| Acessar com chave | `ssh -i chave.pem usuario@ip` |
+| Gerar chave SSH | `ssh-keygen -t ed25519 -C "email"` |
+| Copiar chave para servidor | `ssh-copy-id usuario@ip` |
+| Copiar arquivo para servidor | `scp arquivo.txt usuario@ip:/destino` |
+| Copiar arquivo do servidor | `scp usuario@ip:/arquivo.txt .` |
+| Copiar pasta | `scp -r pasta usuario@ip:/destino` |
+| Sincronizar pasta | `rsync -av pasta/ usuario@ip:/destino/` |
+| Executar comando remoto | `ssh usuario@ip "comando"` |
+| Criar túnel local | `ssh -L 3000:localhost:3000 usuario@ip` |
+| Ver logs SSH | `sudo journalctl -u ssh -f` |
+| Corrigir permissão de chave `.pem` | `chmod 600 chave.pem` |
+| Remover host antigo | `ssh-keygen -R ip_ou_dominio` |
+
+---
+
+## 21. Fluxo recomendado de uso
+
+```bash
+ssh-keygen -t ed25519 -C "seu_email@example.com"
+ssh-copy-id usuario@ip_do_servidor
+ssh usuario@ip_do_servidor
+```
+
+Para servidor com chave específica:
+
+```bash
+chmod 600 chave.pem
+ssh -i chave.pem usuario@ip_do_servidor
+```
